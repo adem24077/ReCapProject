@@ -1,11 +1,12 @@
-﻿using System;
+﻿using Core.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Text;
-using Entities.Abstract;
 
-namespace DataAccess.Abstract
+namespace Core.DataAccess
 {
+    //Core katmanları diğer katmanları referans almaz.
     //generic constraint
     //class: referans tip
     //IEntity: IEntity(newlenemez.) olabilir veya IEntity implemente eden bir nesne olablir.

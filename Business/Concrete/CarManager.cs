@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using System.Text;
 using Business.Abstract;
 using DataAccess.Abstract;
 using DataAccess.Concrete.InMemory;
 using Entities.Concrete;
+using Entities.DTOs;
 
 namespace Business.Concrete
 {
@@ -17,9 +19,40 @@ namespace Business.Concrete
             _carDal = carDal;
         }
 
+        public void Add(Car car)
+        {
+            _carDal.Add(car);
+        }
+
+        public void Delete(Car car)
+        {
+
+            _carDal.Delete(car);
+        }
+
         public List<Car> GetAll()
         {
             return _carDal.GetAll();
+        }
+
+        public List<CarDetailDto> GetCarDetails()
+        {
+            return _carDal.GetCarDetails();
+        }
+
+        public List<CarDetailDto> GetCarsByBrandId(int p)
+        {
+            return _carDal.GetCarDetails(c => c.BrandId == p);
+        }
+
+        public List<CarDetailDto> GetCarsByColorId(int p)
+        {
+            return _carDal.GetCarDetails(c => c.ColorId == p);
+        }
+
+        public void Update(Car car)
+        {
+            _carDal.Update(car);
         }
     }
 }

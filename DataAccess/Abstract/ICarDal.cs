@@ -1,16 +1,15 @@
-﻿using Entities.Concrete;
+﻿using Core.DataAccess;
+using Entities.DTOs;
+using Entities.Concrete;
 using System;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using System.Text;
 
 namespace DataAccess.Abstract
 {
-    public interface ICarDal
+    public interface ICarDal:IEntityRepository<Car>
     {
-        List<Car> GetAll();
-        void Add(Car car);
-        void Update(Car car);
-        void Delete(Car car);
-        List<Car> GetAllById(int carId);
+        List<CarDetailDto> GetCarDetails(Expression<Func<Car, bool>> filter = null);
     }
 }
