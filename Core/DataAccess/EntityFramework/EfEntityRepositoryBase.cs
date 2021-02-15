@@ -37,7 +37,7 @@ namespace Core.DataAccess.EntityFramework
         {
             using (TContext context = new TContext())
             {
-                return context.Set<TEntity>().SingleOrDefault(filter);
+                return context.Set<TEntity>().FirstOrDefault(filter);
             }
         }
 
@@ -45,21 +45,11 @@ namespace Core.DataAccess.EntityFramework
         {
             using (TContext context = new TContext())
             {
-                return filter == null
+                return filter is null
                     ? context.Set<TEntity>().ToList()
                     : context.Set<TEntity>().Where(filter).ToList();
 
             }
-        }
-
-        public List<TEntity> GetAll()
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<TEntity> GetAllById(int carId)
-        {
-            throw new NotImplementedException();
         }
 
         public void Update(TEntity entity)
