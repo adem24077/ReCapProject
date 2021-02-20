@@ -10,8 +10,6 @@ namespace ConsoleUI
     {
         static void Main(string[] args)
         {
-            CarManager carManager = new CarManager(new EfCarDal());
-            BrandManager brandManager = new BrandManager(new EfBrandDal());
             ColorManager colorManager = new ColorManager(new EfColorDal());
             CustomerManager customerManager = new CustomerManager(new EfCustomerDal());
             UserManager userManager = new UserManager(new EfUserDal());
@@ -46,24 +44,33 @@ namespace ConsoleUI
             
         }
 
-        private static void BrandTest()
-        {
-            BrandManager brandManager = new BrandManager(new EfBrandDal());
-            //foreach (var brand in brandManager.GetAll())
-            //{
-            //    Console.WriteLine(brand.BrandName);
-            //}
-        }
+        //private static void BrandTest()
+        //{
+        //    BrandManager brandManager = new BrandManager(new EfBrandDal());
+        //    foreach (var brand in brandManager.GetAll())
+        //    {
+        //        Console.WriteLine(brand.BrandName);
+        //    }
+        //}
 
-        private static void CarTest()
-        {
-            CarManager carManager = new CarManager(new EfCarDal());
+        //private static void CarTest()
+        //{
+        //    CarManager carManager = new CarManager(new EfCarDal());
 
-            //foreach (var car in carManager.GetCarsByBrandId(1))
-            //{
+        //    foreach (var car in carManager.GetAll())
+        //    {
 
-            //    Console.WriteLine(car);
-            //}
-        }
+        //        Console.WriteLine(car);
+        //    }
+        //}
+
+        //private static void UserTest()
+        //{
+        //    UserManager userManager = new UserManager(new EfUserDal());
+        //    foreach (var user in userManager.GetAll())
+        //    {
+
+        //    }
+        //}
     }
 }
