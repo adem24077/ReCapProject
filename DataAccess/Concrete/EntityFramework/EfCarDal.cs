@@ -12,11 +12,11 @@ using Microsoft.EntityFrameworkCore;
 namespace DataAccess.Concrete.EntityFramework
 {
     //NuGet
-    public class EfCarDal : EfEntityRepositoryBase<Car, NorthwindContext>, ICarDal
+    public class EfCarDal : EfEntityRepositoryBase<Car, RecapProjectContext>, ICarDal
     {
         public List<CarDetailDto> GetCarDetails(Expression<Func<Car,bool>> filter=null)
         {
-            using (NorthwindContext context=new NorthwindContext())
+            using (RecapProjectContext context =new RecapProjectContext())
             {
                 var result = 
                     from ca in filter is null ? 

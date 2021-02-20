@@ -10,12 +10,12 @@ using System.Text;
 
 namespace DataAccess.Concrete.EntityFramework
 {
-    public class EfRentalDal : EfEntityRepositoryBase<Rental, NorthwindContext>, IRentalDal
+    public class EfRentalDal : EfEntityRepositoryBase<Rental, RecapProjectContext>, IRentalDal
     {
         public List<RentalDetailDto> GetRentalDetails(Expression<Func<Rental, bool>> filter = null)
         {
 
-            using (NorthwindContext context = new NorthwindContext())
+            using (RecapProjectContext context = new RecapProjectContext())
             {
                 var result = from re in filter is null ? context.Rentals : context.Rentals.Where(filter)
                     join ca in context.Cars
@@ -23,7 +23,7 @@ namespace DataAccess.Concrete.EntityFramework
                     join cus in context.Customers
                         on re.CustomerId equals cus.CustomerId
                     join us in context.Users
-                        on cus.UserId equals us.UserId
+                        on cus.UserId equals us.Id
                     select new RentalDetailDto
                     {
                         RentalId = re.RentalId,
