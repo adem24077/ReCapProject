@@ -8,7 +8,7 @@ using DataAccess.Concrete.EntityFramework;
 using System;
 using System.Collections.Generic;
 using System.Text;
-
+using Autofac.Extras.DynamicProxy;
 
 namespace Business.DependencyResolvers.Autofac
 {

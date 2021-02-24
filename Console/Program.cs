@@ -18,8 +18,9 @@ namespace ConsoleUI
             //CarTest();
             //IoC
             //BrandTest();
-            ColorTest();
-            GetAllUser();
+            //ColorTest();
+            //GetAllUser();
+            UserTest();
 
 
         }
@@ -64,13 +65,13 @@ namespace ConsoleUI
         //    }
         //}
 
-        //private static void UserTest()
-        //{
-        //    UserManager userManager = new UserManager(new EfUserDal());
-        //    foreach (var user in userManager.GetAll())
-        //    {
-
-        //    }
-        //}
+        private static void UserTest()
+        {
+            UserManager userManager = new UserManager(new EfUserDal());
+            foreach (var user in userManager.GetAll().Data)
+            {
+                Console.WriteLine(user.Id);
+            }
+        }
     }
 }
